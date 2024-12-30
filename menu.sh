@@ -80,30 +80,6 @@ CITY=$( curl -s ipinfo.io/city )
 # Getting Domain Name
 Domen="$(cat /usr/local/etc/xray/domain)"
 
-# Status SSH
-statusssh="$(systemctl show ssh.service --no-page)"
-status_textssh=$(echo "${statusssh}" | grep 'ActiveState=' | cut -f2 -d=)
-ONSSH="\e[0;32mON\e[0m"
-OFFSSH="\e[0;31mOFF\e[0m"
-if [ "${status_textssh}" == "active" ]                           
-then
-ssh=$ONSSH
-else
-ssh=$OFFSSH
-fi
-
-#STATUS OVPN
-statusovpn="$(systemctl show --now openvpn-server@server-tcp-1194 --no-page)"
-status_textovpn=$(echo "${statusovpn}" | grep 'ActiveState=' | cut -f2 -d=)
-ONOVPN="\e[0;32mON\e[0m"
-OFFOVPN="\e[0;31mOFF\e[0m"
-if [ "${status_textovpn}" == "active" ]                           
-then
-ovpn=$ONOVPN
-else
-ovpn=$OFFOVPN
-fi
-
 #status xray
 statusxray="$(systemctl show xray.service --no-page)"
 status_textxray=$(echo "${statusxray}" | grep 'ActiveState=' | cut -f2 -d=)
@@ -115,28 +91,6 @@ xray=$ONXRAY
 else
 xray=$OFFXRAY
 fi
-
-#status shadowsocks
-statusss="$(systemctl show shadowsocks-libev.service --no-page)"
-status_textss=$(echo "${statusss}" | grep 'ActiveState=' | cut -f2 -d=)
-ONSS="\e[0;32mON\e[0m"
-OFFSS="\e[0;31mOFF\e[0m"
-if [ "${status_textss}" == "active" ]                           
-then
-ss=$ONSS
-else
-ss=$OFFSS
-fi
-
-#JUMLAH SSH
-if [ -f /etc/debian_version ]; then
-	UIDN=1000
-elif [ -f /etc/redhat-release ]; then
-	UIDN=500
-else
-	UIDN=500
-fi
-JUMLAHSSH="$(awk -F: '$3 >= '$UIDN' && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 
 #JUMLAH VMESS WS
 JUMLAHVMESSWS=$(grep -c -E "^#vms " "/usr/local/etc/xray/config.json")
@@ -152,16 +106,6 @@ JUMLAHTROJANWS=$(grep -c -E "^### " "/usr/local/etc/xray/akuntrws.conf")
 
 #JUMLAH TROJAN GRPC TLS$NC
 JUMLAHTROJANGRPC=$(grep -c -E "^### " "/usr/local/etc/xray/akunxtrgrpc.conf")
-
-#JUMLAH WIREGUARD
-source /etc/wireguard/params
-JUMLAHWG=$(grep -c -E "^### Client" "/etc/wireguard/$SERVER_WG_NIC.conf")
-
-#JUMLAHSSH
-JUMLAHSS=$(grep -c -E "^### " "/etc/shadowsocks-libev/akun.conf")
-
-#JUMLAHSSR
-JUMLAHSSR=$(grep -c -E "^### " "/usr/local/shadowsocksr/akun.conf")
 
 #VERSION XRAY INSTALLED ON SCRIPT
 xray_version="$(xray version | head -n 1 | awk '{print $2}')"

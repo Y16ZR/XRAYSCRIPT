@@ -2,8 +2,6 @@
 # By EZ-Code
 # ==================================================
 
-apt install ncurses-utils -y
-
 #INSTALL WGET AND CURL
 apt update -y
 apt upgrade -y

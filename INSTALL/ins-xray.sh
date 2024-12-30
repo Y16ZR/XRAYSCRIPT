@@ -63,7 +63,6 @@ chmod +x /root/.acme.sh/acme.sh
         --register-account  --accountemail $emailcf
 /root/.acme.sh/acme.sh --server letsencrypt --issue -d $domain --standalone -k ec-256			   
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /usr/local/etc/xray/xray.crt --keypath /usr/local/etc/xray/xray.key --ecc
-service squid start
 
 #UUID XRAY
 uuid=$(cat /proc/sys/kernel/random/uuid)
