@@ -4,34 +4,16 @@
 
    >>> Service & Port
 
-    [INFORMASI SSH & OpenVPN]
-    -------------------------
-   - OpenSSH                 : 22
-   - OpenVPN                 : TCP 1194, UDP 2200
-   - OpenVPN SSL             : 110
-   - Slow/SSH Dns            : ANY PORT CAN USED
-   - Stunnel                 : 222, 777
-   - Dropbear                : 109, 143
-   - OHP Dropbear            : 8585
-   - OHP SSH                 : 8686
-   - OHP OpenVPN             : 8787
-   - Websocket SSH(HTTP)     : 2082
-   - Websocket SSL(HTTPS)    : 2083
-   - Websocket OpenVPN       : 2084
-
-    [INFORMASI Sqd, Bdvp, Ngnx]
-    ---------------------------
-   - Squid Proxy             : 3128, 8080 (limit to IP Server)
-   - Badvpn                  : 7100, 7200, 7300
+    [INFORMASI NGINX]
+    -----------------
    - Nginx                   : 81
 
-    [INFORMASI WG]
+    [INFORMASI WIREGUARD]
     --------------
    - Wireguard               : 5820
 
-    [INFORMASI Shadowsocks-R & Shadowsocks]
-    ---------------------------------------
-   - Shadowsocks-R           : 1443-1543
+    [INFORMASI SHADOWSOCKS OBFS]
+    ----------------------------
    - SS-OBFS TLS             : 2443-2543
    - SS-OBFS HTTP            : 3443-3543
 
@@ -49,12 +31,7 @@
    - Xray Trojan Grpc Tls    : 443
    - Xray Trojan Ws None Tls : 80
 
-    [INFORMASI CLASH FOR ANDROID (YAML)]
-    -----------------------------------
-   - Xray Vmess Ws Yaml      : Yes
-   - Shadowsocks Yaml        : Yes
-   - ShadowsocksR Yaml       : Yes
-   --------------------------------------------------------------
+   -------------------------------------------------------------
 
    >>> Server Information & Other Features
    - Timezone                : Asia/Kuala_Lumpur (GMT +8)

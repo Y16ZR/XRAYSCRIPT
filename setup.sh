@@ -195,10 +195,10 @@ history -c
 echo "$ver" > /home/ver
 clear
 echo " "
-wget -O /root/log-install.txt "https://raw.githubusercontent.com/Y16ZR/XRAYSCRIPT/main/vps.conf"
+wget -O /root/log-install.txt "https://raw.githubusercontent.com/Y16ZR/XRAYSCRIPT/main/log-install.txt"
 echo "Installation has been completed!!"
 echo ""
-cat /root/log-install.txt 
+cat /root/log-install.txt
 sleep 2
 clear
 echo -e "${blue}════════════════════════════════════════════════════\033[0m"
