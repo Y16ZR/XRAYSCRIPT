@@ -92,6 +92,18 @@ else
 xray=$OFFXRAY
 fi
 
+#status shadowsocks
+statusss="$(systemctl show shadowsocks-libev.service --no-page)"
+status_textss=$(echo "${statusss}" | grep 'ActiveState=' | cut -f2 -d=)
+ONSS="\e[0;32mON\e[0m"
+OFFSS="\e[0;31mOFF\e[0m"
+if [ "${status_textss}" == "active" ]                           
+then
+ss=$ONSS
+else
+ss=$OFFSS
+fi
+
 #JUMLAH VMESS WS
 JUMLAHVMESSWS=$(grep -c -E "^#vms " "/usr/local/etc/xray/config.json")
 
@@ -125,8 +137,6 @@ else
 xversion=$old
 fi
 
-
-
 clear
 echo ""
 echo ""
@@ -145,7 +155,7 @@ echo -e "  \e[0;34m║  \e[0;94mEXPIRY STATUS \e[0;34m=\e[0;94m $sts "
 echo -e "  \e[0;34m╚══════════════════════════════════════════════════════════╝\e[m"
 echo -e "  ${yellow} XRAY VERSION:${NC} ${xray_version} ${xversion}"
 echo ""
-echo -e "              \e[0;94mXRAY : $xray"
+echo -e "              \e[0;94mXRAY : $xray       \e[0;94mSHADOWSOCKS OBFS : $ss"
 echo -e "       $green——————————$blue———————————————$cyan————————————$yellow—————————――$NC"
 echo -e "  \e[0;34m┏━━━━━━━━━━━━━━━━[ \e[0;33mCONTROLL PANEL MENU\e[m \e[0;34m]━━━━━━━━━━━━━━━━━━━┓"
 echo -e "  \e[0;34m┃                                                          ┃"
