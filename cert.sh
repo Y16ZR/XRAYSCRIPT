@@ -49,7 +49,6 @@ sleep 1
 /root/.acme.sh/acme.sh --server $acmeh --issue -d $domain --standalone -k ec-256 --force
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /usr/local/etc/xray/xray.crt --keypath /usr/local/etc/xray/xray.key --ecc
 systemctl start xray
-systemctl start trojan-go
 echo Done
 sleep 0.5
 echo -e "[${GREEN}Done${NC}]"
