@@ -19,6 +19,8 @@
 
     [INFORMASI XRAY]
     ----------------
+   - Xray Vmess Xhttp        : 443
+   - Xray Vless Xhttp        : 443
    - Xray Vmess Ws Tls       : 443
    - Xray Vless Ws Tls       : 443
    - Xray Vless Tcp Xtls     : 443
